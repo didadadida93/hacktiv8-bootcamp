@@ -1,2 +1,0 @@
-# MyBook
-Simple HTML page.
