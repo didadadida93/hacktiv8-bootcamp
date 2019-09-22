@@ -1,0 +1,36 @@
+1. Newton Second Law
+STORE "masa benda" with value 600
+STORE "percepatan" with value 2
+
+CALCULATE "masa benda" times "percepatan"
+SET "resultan gaya" value with calculation result
+
+DISPLAY "resultan gaya"
+
+
+2. Tahun Kabisat
+STORE "tahun" with any value
+IF "tahun" modulus 4 equals to 0 AND "tahun" modulus 100 not equals to 0
+  DISPLAY "tahun kabisat"
+ELSE IF "tahun" modulus 4 equals to 0 AND "tahun" modulus 100 equals to 0 AND "tahun" modulus 400 equals to 0
+  DISPLAY "tahun kabisat"
+ELSE
+  DISPLAY "bukan tahun kabisat"
+  
+  
+3. Laundry Day
+STORE "jumlah pakaian" with value 20
+WHILE "jumlah pakaian" > 0
+  DO "memasukan pakaian ke mesin cuci"
+  SUBTRACT "jumlah pakaian" with 1
+DO "nyalakan mesin cuci"
+
+4. Periksa Kuku
+STORE "jumlah murid" with value 40
+WHILE "jumlah murid" > 0
+  IF "murid" have "kuku panjang"
+    DO "menghukum murid"
+  ELSE
+  	DO "memuji murid"
+  SUBTRACT "jumlah murid" with 1
+
