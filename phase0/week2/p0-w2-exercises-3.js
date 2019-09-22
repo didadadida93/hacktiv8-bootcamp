@@ -7,7 +7,7 @@ if (name === '') {
 	if (peran === '') {
 		console.log(`Halo ${name}, Pilih peranmu untuk memulai game!`);
 	} else {
-		console.log(`Selamat data di Dunia Proxytia, ${name}`);
+		console.log(`Selamat datang di Dunia Proxytia, ${name}`);
 		if (peran.toLowerCase() === 'ksatria') {
 			console.log(`Halo Ksatria ${name}, kamu dapat menyerang dengan senjatamu!`);
 		} else if (peran.toLowerCase() === 'tabib') {

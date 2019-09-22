@@ -1,18 +1,18 @@
 // soal nomor 1, 2, & 3
 function asteriksFirst(n) {
-  for (i = 1; i <= n; i++) {
+  for (let i = 1; i <= n; i++) {
     console.log(`*`);
   }
 }
 
 function asteriksSecond(n) {
-  for (i = 1; i <= n; i++) {
+  for (let i = 1; i <= n; i++) {
     console.log(`*`.repeat(n));
   }
 }
 
 function asteriksThird(n) {
-  for (i = 1; i <= n; i++) {
+  for (let i = 1; i <= n; i++) {
     console.log(`*`.repeat(i));
   }
 }

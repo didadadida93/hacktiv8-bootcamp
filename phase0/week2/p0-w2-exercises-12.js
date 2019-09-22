@@ -1,10 +1,10 @@
-function konversiMenit(menit) {
+function konversiMenit(detik) {
   // you can only write your code here!
-  let second = menit % 60;
+  let second = detik % 60;
   if (second < 10) {
     second = `0` + second;
   }
-  return `${Math.floor(menit / 60)}:${second}`
+  return `${Math.floor(detik / 60)}:${second}`
 }
 
 // TEST CASES
