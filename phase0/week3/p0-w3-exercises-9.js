@@ -1,14 +1,20 @@
-function sum(l) {
-  let total = 0;
-  for (let n of l) {
-    total += n;
+Array.prototype.sum = function () {
+  if (this.length === 0) {
+    return 0
   }
-  return total;
+  if (this.length === 1) {
+    return this[0]
+  }
+  let total = this.slice(0, 1)[0]
+  for (let i = 1; i < this.length; i++) {
+    total += this[i]
+  }
+  return total
 }
 
 function cariMean(arr) {
   // you can only write your code here!
-  return Math.round(sum(arr) / arr.length)
+  return Math.round(arr.sum() / arr.length)
 }
 
 // TEST CASES

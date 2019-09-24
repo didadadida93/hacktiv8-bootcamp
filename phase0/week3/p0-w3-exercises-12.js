@@ -3,9 +3,9 @@ function tentukanDeretGeometri(arr) {
   if (arr.length <= 2) {
     return true
   }
-  let dif = arr.pop() / arr.pop()
+  let diff = arr.slice(1, 2)[0] / arr.slice(0, 1)[0]
   for (let i = 0; i < arr.length - 1; i++) {
-    if (dif !== arr[i + 1] / arr[i]) {
+    if (diff !== arr[i + 1] / arr[i]) {
       return false
     }
   }

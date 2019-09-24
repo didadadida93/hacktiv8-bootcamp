@@ -1,6 +1,6 @@
 function hitungJumlahKata(kalimat) {
   // you can only write your code here!
-  return kalimat.split(' ').length;
+  return kalimat.split(' ').length
 }
 
 // TEST CASES
