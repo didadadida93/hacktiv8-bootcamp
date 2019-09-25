@@ -9,15 +9,13 @@ function pairData(data) {
   // pair data with template and concatenate it
   let template = [`Nomor ID`, `Nama Lengkap`, `TTL`, `Hobi`]
   let result = ''
-  let i = 0
-
-  for (let t of template) {
-    if (t === `TTL`) {
-      result += `${t}: ${data[i]} ${data[i + 1]}\n`
-      i += 2
+  
+  while (template.length > 0) {
+    let temp = template.shift()
+    if (temp === 'TTL') {
+      result += `${temp}: ${data.shift()} ${data.shift()}\n`
     } else {
-      result += `${t}: ${data[i]}\n`
-      i++
+      result += `${temp}: ${data.shift()}\n`
     }
   }
 

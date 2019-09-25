@@ -19,8 +19,7 @@ function max(list) {
 
 function pasanganTerbesar(num) {
   // you can only write your code here!
-  let couple = decouple(num.toString())
-  return max(couple);
+  return max(decouple(num.toString()))
 }
 
 // TEST CASES

@@ -1,15 +1,17 @@
 Array.prototype.multiply = function () {
   if (this.length === 0) {
     return 0
-  }
-  if (this.length === 1) {
+  } else if (this.length === 1) {
     return this[0]
+  } else {
+
+    let total = this.slice(0, 1)[0]
+    for (let i = 1; i < this.length; i++) {
+      total *= this[i]
+    }
+
+    return total
   }
-  let total = this.slice(0, 1)[0]
-  for (let i = 1; i < this.length; i++) {
-    total *= this[i]
-  }
-  return total
 }
 
 function pop(list, index) {
