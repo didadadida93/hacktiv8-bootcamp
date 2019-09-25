@@ -1,10 +1,6 @@
 function konversiMenit(detik) {
   // you can only write your code here!
-  let second = detik % 60;
-  if (second < 10) {
-    second = `0` + second;
-  }
-  return `${Math.floor(detik / 60)}:${second}`
+  return `${Math.floor(detik / 60)}:${detik % 60 < 10 ? '0' + detik % 60 : detik % 60}`
 }
 
 // TEST CASES
