@@ -17,10 +17,11 @@ function asteriksThird(n) {
   }
 }
 
-let rows = []
-rows.push(Number(window.prompt(`Row 1?`)));
-rows.push(Number(window.prompt(`Row 2?`)));
-rows.push(Number(window.prompt(`Row 3?`)));
+let rows1 = 5;
+let rows2 = 8;
+let rows3 = 7;
+
+let rows = [rows1, rows2, rows3];
 
 for (let i in rows) {
   switch (i) {

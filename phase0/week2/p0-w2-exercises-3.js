@@ -1,5 +1,5 @@
-let name = window.prompt("Siapa namamu?");
-let peran = window.prompt("Apa peranmu?");
+let name = "Arief";
+let peran = "Tabib";
 
 if (name === '') {
 	console.log("Nama harus diisi!");

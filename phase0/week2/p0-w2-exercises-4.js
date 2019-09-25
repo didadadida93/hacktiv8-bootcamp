@@ -1,6 +1,6 @@
-let tanggal = window.prompt("Tanggal berapa?");
-let bulan = window.prompt("Bulan berapa?");
-let tahun = window.prompt("Tahun berapa?");
+let tanggal = 25;
+let bulan = 9;
+let tahun = 2019;
 
 let err = ''; // error message
 
@@ -19,7 +19,7 @@ if (Number(tahun) > 2200 || Number(tahun) < 1900) {
 if (err) {
 	console.log(err);
 } else {
-	switch (bulan) {
+	switch (bulan.toString()) {
 		case '1':
 			console.log(`${tanggal} Januari ${tahun}`);
 			break;
