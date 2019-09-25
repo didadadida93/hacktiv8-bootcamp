@@ -14,28 +14,9 @@ Array.prototype.multiply = function () {
   }
 }
 
-function pop(list, index) {
-  // pop value from array based on index and return new array
-  if (index === 0) {
-    return list.slice(1, list.length)
-  }
-  if (index === list.length - 1) {
-    return list.slice(0, list.length - 1)
-  }
-  if (index >= list.length) {
-    console.log(`out of index, array length is ${list.length - 1}`)
-  }
-  return [...list.slice(0, index), ...list.slice(index + 1, list.length)]
-}
-
 function perkalianUnik(arr) {
   // you can only write your code here!
-  let result = [];
-  for (let i = 0; i < arr.length; i++) {
-    let slicedList = pop(arr, i)
-    result.push(slicedList.multiply())
-  }
-  return result;
+  return arr.map((value, index) => arr.filter((v, i) => i !== index).multiply())
 }
 
 // TEST CASES
