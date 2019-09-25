@@ -1,22 +1,6 @@
-Array.prototype.multiply = function () {
-  if (this.length === 0) {
-    return 0
-  } else if (this.length === 1) {
-    return this[0]
-  } else {
-
-    let total = this.slice(0, 1)[0]
-    for (let i = 1; i < this.length; i++) {
-      total *= this[i]
-    }
-
-    return total
-  }
-}
-
 function perkalianUnik(arr) {
   // you can only write your code here!
-  return arr.map((value, index) => arr.filter((v, i) => i !== index).multiply())
+  return arr.map((value, index) => arr.filter((v, i) => i !== index).reduce((a, x) => a *= x))
 }
 
 // TEST CASES
