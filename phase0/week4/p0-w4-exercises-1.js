@@ -1,14 +1,6 @@
-function createList(start, end, step) {
-  let result = []
-  for (start; start < end; start += step) {
-    result.push(start)
-  }
-  return result
-}
-
 function angkaPrima(angka) {
   // you can only write your code here!
-  return angka === 1 ? false : createList(2, angka, 1).every(v => angka % v !== 0)
+  return angka === 1 ? false : [...new Array(angka - 2)].map((_, i) => i + 2).every(v => angka % v !== 0)
 }
 
 // TEST CASES

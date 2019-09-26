@@ -3,12 +3,14 @@ function naikAngkot(arrPenumpang) {
   //your code here
   let result = []
   for (let data of arrPenumpang) {
-    let obj = {}
-    obj.penumpang = data[0]
-    obj.naikDari = data[1]
-    obj.tujuan = data[2]
-    obj.bayar = 2000 * (Math.abs(rute.indexOf(data[1]) - rute.indexOf(data[2])))
-    result.push(obj)
+    result.push(
+      {
+        'penumpang': data[0],
+        'naikDari': data[1],
+        'tujuan': data[2],
+        'bayar': 2000 * (Math.abs(rute.indexOf(data[1]) - rute.indexOf(data[2])))
+      }
+    )
   }
   return result
 }

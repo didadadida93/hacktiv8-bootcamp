@@ -5,12 +5,7 @@ function ubahHuruf(kata) {
     'y', 'z'
   ]
 
-  let result = ''
-  for (let word of kata) {
-    let index = alphabetList.indexOf(word)
-    result += alphabetList[index + 1]
-  }
-  return result
+  return kata.split('').map(v => alphabetList[alphabetList.indexOf(v) + 1]).join('')
 }
 
 // TEST CASES

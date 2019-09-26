@@ -1,14 +1,6 @@
 function tukarBesarKecil(kalimat) {
   // you can only write your code here!
-  let result = '';
-  for (let w of kalimat) {
-    if (w.toUpperCase() === w) {
-      result += w.toLowerCase();
-    } else {
-      result += w.toUpperCase();
-    }
-  }
-  return result;
+  return kalimat.split('').map(v => v.toUpperCase() === v ? v.toLowerCase() : v.toUpperCase()).join('')
 }
 
 // TEST CASES

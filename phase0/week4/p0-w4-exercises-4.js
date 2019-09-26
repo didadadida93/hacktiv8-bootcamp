@@ -1,45 +1,14 @@
-function length(map) {
-  // count how much key-value pair that exists inside this map
-  let c = 0
-  for (let _ in map) {
-    c += 1
-  }
-  return c
-}
-
-function yangPalingSeringMuncul(map) {
-  let jumlahMuncul = 0
-  let result = null
-
-  for (let n in map) {
-    if (map[n] > jumlahMuncul) {
-      jumlahMuncul = map[n]
-      result = n
-    }
-  }
-
-  if (result === '1') { // it seems all element just appear once
-    return -1
-  }
-
-  return result
-}
-
 function cariModus(arr) {
   // you can only write your code here!
-  let tabelKemunculan = new Map()
-  for (let number of arr) {
-    if (!(number in tabelKemunculan)) {
-      tabelKemunculan[number] = 0
+  let temp = arr.reduce((a, v) => {
+    if (!a[v]) {
+      a[v] = 0
     }
-    tabelKemunculan[number] += 1
-  }
+    a[v] += 1
+    return a
+  }, {})
 
-  let tabelLength = length(tabelKemunculan)
-  if (tabelLength === 1) {
-    return -1
-  }
-  return yangPalingSeringMuncul(tabelKemunculan)
+  return Object.values(temp).every((v, _, ar) => v === ar[0]) ? -1 : [...Object.entries(temp)].sort((a, b) => a[1] < b[1])[0][0]
 }
 
 // TEST CASES

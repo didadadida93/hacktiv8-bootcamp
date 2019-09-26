@@ -1,24 +1,6 @@
-function cariMedianDeretGenap(list) {
-  // find median from array of number that have even length
-  let startIndex = list.length / 2;
-  return (list[startIndex - 1] + list[startIndex]) / 2
-}
-
-function cariMedianDeretGanjil(list) {
-  // find median from array of number that have odd length
-  let startIndex = Math.floor(list.length / 2);
-  return list[startIndex]
-}
-
 function cariMedian(arr) {
   // you can only write your code here!
-  if (arr.length % 2 === 0) {
-    return cariMedianDeretGenap(arr);
-  }
-  if (arr.length % 2 === 1) {
-    return cariMedianDeretGanjil(arr);
-  }
-  return `Something wrong when arr = ${arr}`;
+  return arr.length % 2 === 1 ? arr.find((v, i) => i === Math.floor(arr.length / 2)) : arr.slice(Math.floor(arr.length / 2) - 1, Math.floor(arr.length / 2) + 1).reduce((a, v) => a += v) / 2
 }
 
 // TEST CASES

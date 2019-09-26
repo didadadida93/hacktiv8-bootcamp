@@ -1,11 +1,3 @@
-function makeObjectBarang(data) {
-  let obj = {}
-  obj['name'] = data[0]
-  obj['price'] = data[1]
-  obj['stock'] = data[2]
-  return obj
-}
-
 function makeReportObject(logPurchasing, dataBarang) {
   let reportObject = {}
   for (let barang of dataBarang) {
@@ -51,7 +43,7 @@ function countProfit(shoppers) {
   }
   let listObjectBarang = []
   for (let data of listBarang) {
-    listObjectBarang.push(makeObjectBarang(data))
+    listObjectBarang.push({'name': data[0], 'price': data[1], 'stock': data[2]})
   }
 
   let logPurchasing = []
@@ -61,13 +53,7 @@ function countProfit(shoppers) {
       if (data.product === barang.name && barang.stock >= data.amount) {
         // substract stock from listObjectBarang based on data.amount
         barang.stock -= data.amount
-        // add data.name, data.product, and data.amount
-        // after that save it to logPurchasing
-        let log = {}
-        log['productName'] = data.product
-        log['buyer'] = data.name
-        log['amount'] = data.amount
-        logPurchasing.push(log)
+        logPurchasing.push({'productName': data.product, 'buyer': data.name, 'amount': data.amount})
       }
     }
   }

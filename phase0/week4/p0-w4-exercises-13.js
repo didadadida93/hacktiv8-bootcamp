@@ -8,10 +8,7 @@ function sumNestedArray(arr) {
 
 function deepSum (arr) {
   // Code disini
-  if (arr.length === 0) {
-    return 'No number'
-  }
-  return sumNestedArray(arr)
+  return arr.length === 0 ? 'No number' : sumNestedArray(arr)
 }
 
 //TEST CASE
