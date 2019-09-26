@@ -1,34 +1,9 @@
-Array.prototype.findIndexOf = function (value) {
-  let result = []
-  for (let i = 0; i < this.length; i++) {
-    if (value === this[i]) {
-      result.push(i)
-    }
-  }
-  return result.length > 0 ? result : -1
-}
-
-function max(list) {
-  // find maximum number from array
-  let maximum = list.slice(0, 1)[0]
-  for (let i = 1; i < list.length; i++) {
-    maximum = list[i] > maximum ? list[i] : maximum
-  }
-  return maximum
-}
-
-function minDistance(list, num) {
-  // substract number from list with num and find the lowest
-  let result = max(list)
-  for (let n of list) {
-    result = Math.abs(num - n) < result ? Math.abs(num - n) : result
-  }
-  return result
-}
-
 function targetTerdekat(arr) {
   // you can only write your code here!
-  return arr.findIndexOf('x') === -1 ? 0 : minDistance(arr.findIndexOf('x'), ...arr.findIndexOf('o'))
+  if (arr.indexOf('x') === -1) {
+    return 0
+  }
+  return arr.map((v, i) => v === 'x' ? i : -1).filter(v => v !== -1).map(v => Math.abs(arr.indexOf('o') - v)).reduce((a, v) => a < v ? a : v)
 }
 
 // TEST CASES

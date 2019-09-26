@@ -1,10 +1,6 @@
-String.prototype.reverse = function () {
-  return this.split('').reverse().join('')
-}
-
 function palindrome(kata) {
   // you can only write your code here!
-  return kata === kata.reverse()
+  return kata === [...kata].map((_, i, ar) => ar[ar.length - 1 - i]).join('')
 }
 
 // TEST CASES

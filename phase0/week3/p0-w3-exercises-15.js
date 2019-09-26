@@ -1,18 +1,12 @@
 function groupAnimals(animals) {
   // you can only write your code here!
-  let temp = new Map()
-  for (let animal of animals) {
-    if (!(animal[0] in temp)) {
-      temp[animal[0]] = []
+  return Object.values(animals.reduce((a, v) => {
+    if (!a[v[0]]) {
+      a[v[0]] = []
     }
-    temp[animal[0]].push(animal)
-  }
-
-  let result = []
-  for (let key in temp) {
-    result.push(temp[key])
-  }
-  return result.sort()
+    a[v[0]].push(v)
+    return a
+  }, {})).sort()
 }
 
 // TEST CASES

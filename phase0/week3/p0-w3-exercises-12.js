@@ -3,13 +3,7 @@ function tentukanDeretGeometri(arr) {
   if (arr.length <= 2) {
     return true
   }
-  let diff = arr.slice(1, 2)[0] / arr.slice(0, 1)[0]
-  for (let i = 0; i < arr.length - 1; i++) {
-    if (diff !== arr[i + 1] / arr[i]) {
-      return false
-    }
-  }
-  return true
+  return arr.map((v, i, ar) => i === 0 ? ar[i + 1] / v : v / ar[i - 1]).every((v, _, ar) => v === ar[0])
 }
 
 // TEST CASES

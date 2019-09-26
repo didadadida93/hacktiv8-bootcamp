@@ -1,12 +1,6 @@
 function balikKata(kata) {
   // you can only write your code here!
-  let result = ``;
-  for (let i = kata.length - 1; i >= 0; i--) {
-    result += kata[i];
-  }
-  return result
+  return [...kata].map((_, i, ar) => ar[ar.length - 1 - i]).join('')
 }
 
-let input = window.prompt("Input kata yang ingin dibalik: ");
-
-console.log(balikKata(input));
+console.log(balikKata('Ini akan terbalik'))

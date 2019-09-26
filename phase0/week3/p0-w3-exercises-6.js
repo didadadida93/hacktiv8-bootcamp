@@ -1,17 +1,7 @@
-String.prototype.reverse = function () {
-  return this.split('').reverse().join('')
-}
-
 function angkaPalindrome(num) {
   // you can only write your code here!
-  let found = false
-  while (!found) {
-    num++
-    if (num.toString() === num.toString().reverse()) {
-      found = true
-    }
-  }
-  return num
+  num++
+  return num.toString() === num.toString().split('').map((_, i, ar) => ar[ar.length - 1 - i]).join('') ? num : angkaPalindrome(num)
 }
 
 // TEST CASES

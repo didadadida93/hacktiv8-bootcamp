@@ -1,21 +1,6 @@
 function mengelompokkanAngka(arr) {
   // you can only write your code here!
-  let evenList = [];
-  let oddList = [];
-  let anotherList = [];
-  while (arr.length > 0) {
-    let temp = arr.shift();
-    if (temp % 3 === 0) { // multiply 3
-      anotherList.push(temp)
-    } else if (temp % 2 === 1) { // odd
-      oddList.push(temp)
-    } else if (temp % 2 === 0) { // even
-      evenList.push(temp)
-    } else {
-      console.log(`failed to identify ${temp}`)
-    }
-  }
-  return [evenList, oddList, anotherList];
+  return [arr.filter(v => v % 2 === 0 && v % 3 !== 0), arr.filter(v => v % 2 === 1 && v % 3 !== 0), arr.filter(v => v % 3 === 0)]
 }
 
 // TEST CASES

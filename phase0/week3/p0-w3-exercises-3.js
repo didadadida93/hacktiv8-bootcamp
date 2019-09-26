@@ -5,26 +5,12 @@ var input = [
   ["0004", "Bintang Senjaya", "Martapura", "6/4/1970", "Berkebun"]
 ]
 
-function pairData(data) {
-  // pair data with template and concatenate it
-  let template = [`Nomor ID`, `Nama Lengkap`, `TTL`, `Hobi`]
-  let result = ''
-  
-  while (template.length > 0) {
-    let temp = template.shift()
-    if (temp === 'TTL') {
-      result += `${temp}: ${data.shift()} ${data.shift()}\n`
-    } else {
-      result += `${temp}: ${data.shift()}\n`
-    }
-  }
-
-  return result
-}
-
 function dataHandling(input) {
+  let template = [`Nomor ID`, `Nama Lengkap`, `TTL`, `Hobi`]
+  
   for (let data of input) {
-    console.log(pairData(data))
+    data.splice(2, 2, `${data[2]} ${data[3]}`)
+    console.log(data.map((v, i) => `${template[i]}: ${v}`).join('\n'), '\n')
   }
 }
 

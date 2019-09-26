@@ -1,25 +1,6 @@
-function decouple(strNumber) {
-  // coupling number from array with their next neighbor and put it on
-  // array then return it
-  let result = []
-  for (let i = 0; i < strNumber.length - 1; i++) {
-    result.push(Number([strNumber[i], strNumber[i + 1]].join('')))
-  }
-  return result
-}
-
-function max(list) {
-  // find maximum number from array
-  let maximum = list.slice(0, 1)[0]
-  for (let i = 1; i < list.length; i++) {
-    maximum = list[i] > maximum ? list[i] : maximum
-  }
-  return maximum
-}
-
 function pasanganTerbesar(num) {
   // you can only write your code here!
-  return max(decouple(num.toString()))
+  return [...num.toString()].map((_, index, ar) => Number(ar.filter((_, i) => i === index || i === index + 1).join(''))).reduce((a, v) => a > v ? a : v)
 }
 
 // TEST CASES
