@@ -6,47 +6,20 @@ function changeVocals (str) {
     'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
   ]
 
-  let result = ''
-
-  for (let word of str) {
-    switch (word) {
-      case 'a':
-        result += alphabetList[alphabetList.indexOf(word) + 1]
-        break
-      case 'i':
-        result += alphabetList[alphabetList.indexOf(word) + 1]
-        break
-      case 'u':
-        result += alphabetList[alphabetList.indexOf(word) + 1]
-        break
-      case 'e':
-        result += alphabetList[alphabetList.indexOf(word) + 1]
-        break
-      case 'o':
-        result += alphabetList[alphabetList.indexOf(word) + 1]
-        break
-      case 'A':
-        result += alphabetList[alphabetList.indexOf(word) + 1]
-        break
-      case 'I':
-        result += alphabetList[alphabetList.indexOf(word) + 1]
-        break
-      case 'U':
-        result += alphabetList[alphabetList.indexOf(word) + 1]
-        break
-      case 'O':
-        result += alphabetList[alphabetList.indexOf(word) + 1]
-        break
-      case 'E':
-        result += alphabetList[alphabetList.indexOf(word) + 1]
-        break
-      default:
-        result += word
-        break
-    }
+  let alphabetVocals = {
+    'a': null,
+    'i': null,
+    'e': null,
+    'u': null,
+    'o': null,
+    'A': null,
+    'I': null,
+    'E': null,
+    'U': null,
+    'O': null,
   }
 
-  return result
+  return str.split('').map(v => v in alphabetVocals ? alphabetList[alphabetList.indexOf(v) + 1] : v).join('')
 }
 
 function reverseWord (str) {
@@ -56,15 +29,7 @@ function reverseWord (str) {
 
 function setLowerUpperCase (str) {
   //code disini
-  let result = '';
-  for (let w of str) {
-    if (w.toUpperCase() === w) {
-      result += w.toLowerCase();
-    } else {
-      result += w.toUpperCase();
-    }
-  }
-  return result;
+  return str.split('').map(v => v.toUpperCase() === v ? v.toLowerCase() : v.toUpperCase()).join('')
 }
 
 function removeSpaces (str) {
@@ -83,4 +48,4 @@ function passwordGenerator (name) {
 console.log(passwordGenerator('Sergei Dragunov')); // 'VPNVGBRdJFGRFs'
 console.log(passwordGenerator('Dimitri Wahyudiputra')); // 'BRTVPJDVYHBwJRTJMJd'
 console.log(passwordGenerator('Alexei')); // 'JFXFLb'
-// console.log(passwordGenerator('Alex')); // 'Minimal karakter yang diinputkan adalah 5 karakter'
+console.log(passwordGenerator('Alex')); // 'Minimal karakter yang diinputkan adalah 5 karakter'

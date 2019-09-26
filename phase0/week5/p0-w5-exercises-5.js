@@ -1,14 +1,14 @@
+function kaliAngka(num) {
+  if (num.toString().length === 1){
+    return num
+  } else {
+    let listAngka = num.toString().split('')
+    return Number(listAngka.shift()) * kaliAngka(Number(listAngka.join('')))
+  }
+}
+
 function kaliTerusRekursif(angka) {
   // you can only write your code here!
-
-  function kaliAngka(num) {
-    if (num.toString().length === 1){
-      return num
-    } else {
-      let listAngka = num.toString().split('')
-      return Number(listAngka.shift()) * kaliAngka(Number(listAngka.join('')))
-    }
-  }
 
   if (angka.toString().length === 1) {
     return angka

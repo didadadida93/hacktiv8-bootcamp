@@ -8,16 +8,8 @@ function getTotal(arrNumber) {
   if (arrNumber.length === 0) {
     return ''
   }
-  let totalMuncul = 0;
-  let highestNumber = arrNumber.slice(0, 1)[0]
-  for (let number of arrNumber) {
-    if (number === highestNumber) {
-      totalMuncul += 1
-    } else {
-      break
-    }
-  }
-  return `angka paling besar adalah ${highestNumber} dan jumlah kemunculan sebanyak ${totalMuncul} kali`
+  let totalMuncul = arrNumber.reduce((a, v, _, ar) => v === ar[0] ? a += 1 : a = a, 0)
+  return `angka paling besar adalah ${arrNumber[0]} dan jumlah kemunculan sebanyak ${totalMuncul} kali`
 }
 
 function mostFrequentLargestNumbers(arrNumber) {

@@ -1,23 +1,18 @@
 function meleeRangedGrouping (str) {
   //your code here
-  let result = []
   if (!str) {
-    return result
-  }
-
-  result[0] = []
-  result[1] = []
-
-  for (let splited of str.split(',')) {
-    let temp = splited.split('-')
-    if (temp[1] === 'Ranged') {
-      result[0].push(temp[0])
-    } else {
-      result[1].push(temp[0])
-    }
+    return []
   }
   
-  return result
+  return str.split(',').map(v => v.split('-')).reduce((a, v) => {
+    if (v[1] === 'Ranged') {
+      a[0].push(v[0])
+    }
+    if (v[1] === 'Melee') {
+      a[1].push(v[0])
+    }
+    return a
+  }, [[], []])
 }
 
 // TEST CASE
