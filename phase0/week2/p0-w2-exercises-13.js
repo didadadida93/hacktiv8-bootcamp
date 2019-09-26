@@ -1,18 +1,6 @@
 function xo(str) {
   // you can only write your code here!
-  let xSum = 0;
-  let oSum = 0;
-
-  for (let s of str) {
-    if (s === 'x') {
-      xSum += 1;
-    };
-    if (s === 'o') {
-      oSum += 1;
-    }
-  }
-
-  return xSum === oSum
+  return [...str].filter(v => v === 'x').length === [...str].filter(v => v === 'o').length
 }
 
 // TEST CASES
