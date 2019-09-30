@@ -1,11 +1,6 @@
 function totalDigitRekursif(angka) {
   // you can only write your code here!
-  if (angka.toString().length === 1) {
-    return angka
-  } else {
-    let listAngka = angka.toString().split('')
-    return Number(listAngka.pop()) + totalDigitRekursif(Number(listAngka.join('')))
-  }
+  return angka.toString().length === 1 ? angka : Number(angka.toString().split('').shift()) + totalDigitRekursif(Number(angka.toString().slice(1)))
 }
 
 // TEST CASES

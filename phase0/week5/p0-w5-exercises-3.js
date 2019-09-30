@@ -3,12 +3,7 @@ function makanTerusRekursif(waktu) {
   if (waktu === 0){
     return 0
   }
-  waktu -= 15
-  if (waktu > 0) {
-    return 1 + makanTerusRekursif(waktu)
-  } else {
-    return 1
-  }
+  return waktu - 15 > 0 ? 1 + makanTerusRekursif(waktu - 15) : 1
 }
 
 // TEST CASES

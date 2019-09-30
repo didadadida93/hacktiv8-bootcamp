@@ -1,20 +1,6 @@
-function kaliAngka(num) {
-  if (num.toString().length === 1){
-    return num
-  } else {
-    let listAngka = num.toString().split('')
-    return Number(listAngka.shift()) * kaliAngka(Number(listAngka.join('')))
-  }
-}
-
 function kaliTerusRekursif(angka) {
   // you can only write your code here!
-
-  if (angka.toString().length === 1) {
-    return angka
-  } else {
-    return kaliTerusRekursif(kaliAngka(angka))
-  }
+  return angka.toString().length === 1 ? angka : kaliTerusRekursif(angka.toString().split('').reduce((a, v) => a *= v))
 }
 
 // TEST CASES
