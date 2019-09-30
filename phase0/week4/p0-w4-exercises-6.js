@@ -1,6 +1,6 @@
 function digitPerkalianMinimum(angka) {
   // you can only write your code here!
-  return [...new Array(angka + 1)].map((v, i) => i).filter(v => v !== 0 && angka % v === 0).map(v => [v, angka / v].join('').length).reduce((a, v) => a < v ? a : v)
+  return [...new Array(angka + 1)].map((_, i) => i).filter(v => angka % v === 0).map(v => [v, angka / v].join('').length).reduce((a, v) => a < v ? a : v)
 }
 
 // TEST CASES

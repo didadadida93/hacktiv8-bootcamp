@@ -4,9 +4,7 @@ function fpb(angka1, angka2) {
   let faktorPengaliAngka2 = [...new Array(angka2)].map((_, i) => i).filter(v => angka2 % v === 0)
 
   return faktorPengaliAngka1.filter(v => faktorPengaliAngka2.indexOf(v) !== -1).reduce((a, v, i, ar) => {
-    if (ar.length - 1 === i) {
-      a = v
-    }
+    if (ar.length - 1 === i) a = v
     return a
   })
 }

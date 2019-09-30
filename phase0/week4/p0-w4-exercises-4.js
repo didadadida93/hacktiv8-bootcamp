@@ -1,9 +1,7 @@
 function cariModus(arr) {
   // you can only write your code here!
   let temp = arr.reduce((a, v) => {
-    if (!a[v]) {
-      a[v] = 0
-    }
+    if (!a[v]) a[v] = 0
     a[v] += 1
     return a
   }, {})

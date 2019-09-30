@@ -1,8 +1,3 @@
-// function makeObject(memberId, money, purchasing, moneyLeft) {
-//   let obj = {'memberId': memberId, 'money': money, 'listPurchased': purchasing, 'changeMonye': moneyLeft};
-//   return obj;
-// }
-
 function shoppingTime(memberId, money) {
   // you can only write your code here!
   if (!memberId) {
@@ -13,29 +8,28 @@ function shoppingTime(memberId, money) {
   }
 
   let moneyLeft = money
-  let saleItem = {
-    'Sepatu Stacattu': 1500000,
-    'Baju Zoro': 500000,
-    'Baju H&N': 250000,
-    'Sweater Uniklooh': 175000,
-    'Casing Handphone': 50000,
-  }
-  let purchasing = []
+  let saleItem = [
+    {name: 'Sepatu Stacattu', price: 1500000},
+    {name: 'Baju Zoro', price: 500000},
+    {name: 'Baju H&N', price: 250000},
+    {name: 'Sweater Uniklooh', price: 175000},
+    {name: 'Casing Handphone', price: 50000}
+  ]
 
-  for (let key in saleItem) {
-    if (moneyLeft >= saleItem[key]) {
-      purchasing.push(key)
-      moneyLeft -= saleItem[key]
+  let purchasing = saleItem.reduce((a, item) => {
+    if (moneyLeft >= item.price) {
+      a.push(item.name)
+      moneyLeft -= item.price
     }
-  }
+    return a
+  }, [])
 
-  let obj = {
-    'memberId': memberId,
-    'money': money,
-    'listPurchased': purchasing,
-    'changeMoney': moneyLeft
+  return {
+    memberId: memberId,
+    money: money,
+    listPurchased: purchasing,
+    changeMoney: moneyLeft
   }
-  return obj
 }
 
 // TEST CASES

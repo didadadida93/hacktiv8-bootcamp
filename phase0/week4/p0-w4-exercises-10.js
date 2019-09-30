@@ -1,31 +1,16 @@
-function makeObject(data) {
-  let date = new Date()
-  let obj = {
-    'firstName': null,
-    'lastName': null,
-    'gender': null,
-    'age': null,
-  }
-
-  let c = 0
-  for (let key in obj) {
-    obj[key] = data[c]
-    c++
-  }
-  obj.age = obj.age ? date.getFullYear() - obj.age : 'Invalid Birth Year'
-
-  return obj
-}
-
 function changeMe(arr) {
   // you can only write your code here!
-  let c = 1
-  for (let data of arr) {
-    let obj = makeObject(data)
-    console.log(`${c}. ${obj.firstName} ${obj.lastName}:`)
-    console.log(obj)
-    c++
-  }
+  arr.map((v, i) => {
+    let date = new Date()
+    let tempObj = {
+      firstName: v[0],
+      lastName: v[1],
+      gender: v[2],
+      age: v[3] ? date.getFullYear() - v[3] : 'Invalid Birth Year'
+    }
+    console.log(`${i + 1}. ${tempObj.firstName} ${tempObj.lastName}:`)
+    console.log(tempObj)
+  })
 }
 
 // TEST CASES

@@ -1,14 +1,6 @@
-function sumNestedArray(arr) {
-  let total = 0
-  for (let ar of arr) {
-    total = Array.isArray(ar) ? total + sumNestedArray(ar) : total + ar
-  }
-  return total
-}
-
 function deepSum (arr) {
   // Code disini
-  return arr.length === 0 ? 'No number' : sumNestedArray(arr)
+  return arr.length === 0 ? 'No number' : arr.reduce((a, v) => Array.isArray(v) ? a + deepSum(v) : a + v, 0)
 }
 
 //TEST CASE

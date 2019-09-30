@@ -1,36 +1,3 @@
-function makeReportObject(logPurchasing, dataBarang) {
-  let reportObject = {}
-  for (let barang of dataBarang) {
-    let log = {}
-    log['product'] = barang.name
-    log['shoppers'] = []
-    log['leftOver'] = barang.stock
-    log['totalProfit'] = 0
-    log['price'] = barang.price
-    reportObject[barang.name] = log
-  }
-
-  for (let data of logPurchasing) {
-    reportObject[data.productName]['shoppers'].push(data.buyer)
-    reportObject[data.productName]['totalProfit'] += data.amount * reportObject[data.productName]['price']
-  }
-
-  return reportObject
-}
-
-function makeReport(reportObject) {
-  let result = []
-  for (let key in reportObject) {
-    let log = {}
-    log['product'] = reportObject[key].product
-    log['shoppers'] = reportObject[key].shoppers
-    log['leftOver'] = reportObject[key].leftOver
-    log['totalProfit'] = reportObject[key].totalProfit
-    result.push(log)
-  }
-  return result
-}
-
 function countProfit(shoppers) {
   var listBarang = [ ['Sepatu Stacattu', 1500000, 10],
                      ['Baju Zoro', 500000, 2],
@@ -41,26 +8,37 @@ function countProfit(shoppers) {
   if (shoppers.length === 0) {
     return []
   }
-  let listObjectBarang = []
-  for (let data of listBarang) {
-    listObjectBarang.push({'name': data[0], 'price': data[1], 'stock': data[2]})
-  }
 
-  let logPurchasing = []
+  listBarang = listBarang.reduce((a, item) => {
+    a.push({
+      name: item[0],
+      price: item[1],
+      leftOver: item[2],
+      shoppers: [],
+      profit: 0
+    })
+    return a
+  }, [])
 
-  for (let data of shoppers) {
-    for (let barang of listObjectBarang) {
-      if (data.product === barang.name && barang.stock >= data.amount) {
-        // substract stock from listObjectBarang based on data.amount
-        barang.stock -= data.amount
-        logPurchasing.push({'productName': data.product, 'buyer': data.name, 'amount': data.amount})
+  shoppers.map(shopper => {
+    let item = listBarang.find(item => item.name === shopper.product)
+    if (item) {
+      if (item.leftOver >= shopper.amount) {
+        item.leftOver -= shopper.amount
+        item.profit += shopper.amount * item.price
+        item.shoppers.push(shopper.name)
       }
     }
-  }
+  })
 
-  let reportObject = makeReportObject(logPurchasing, listObjectBarang)
-
-  return makeReport(reportObject)
+  return listBarang.map(item => {
+    return {
+      product: item.name,
+      shoppers: item.shoppers,
+      leftOver: item.leftOver,
+      totalProfit: item.profit,
+    }
+  })
 }
 
 // TEST CASES
