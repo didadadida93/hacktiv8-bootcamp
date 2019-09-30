@@ -1,9 +1,7 @@
 function groupAnimals(animals) {
   // you can only write your code here!
   return Object.values(animals.reduce((a, v) => {
-    if (!a[v[0]]) {
-      a[v[0]] = []
-    }
+    if (!a[v[0]]) a[v[0]] = []
     a[v[0]].push(v)
     return a
   }, {})).sort()

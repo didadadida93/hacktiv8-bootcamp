@@ -1,6 +1,6 @@
 function perkalianUnik(arr) {
   // you can only write your code here!
-  return arr.map((_, index, ar) => ar.filter((v, i) => i !== index).reduce((a, v) => a *= v))
+  return arr.map((_, index, ar) => ar.filter((_, i) => i !== index).reduce((a, v) => a *= v))
 }
 
 // TEST CASES
