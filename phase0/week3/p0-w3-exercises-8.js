@@ -1,6 +1,8 @@
 function pasanganTerbesar(num) {
   // you can only write your code here!
-  return [...num.toString()].map((_, index, ar) => Number(ar.filter((_, i) => i === index || i === index + 1).join(''))).reduce((a, v) => a > v ? a : v)
+  return [...num.toString()]
+    .map((_, index, ar) => Number(ar.filter((_, i) => i === index || i === index + 1).join('')))
+    .reduce((a, v) => a > v ? a : v)
 }
 
 // TEST CASES

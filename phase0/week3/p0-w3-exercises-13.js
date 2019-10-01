@@ -3,7 +3,10 @@ function targetTerdekat(arr) {
   if (arr.indexOf('x') === -1) {
     return 0
   }
-  return arr.map((v, i) => v === 'x' ? i : -1).filter(v => v !== -1).map(v => Math.abs(arr.indexOf('o') - v)).reduce((a, v) => a < v ? a : v)
+  return arr.map((v, i) => v === 'x' ? i : -1)
+    .filter(v => v !== -1)
+    .map(v => Math.abs(arr.indexOf('o') - v))
+    .reduce((a, v) => a < v ? a : v)
 }
 
 // TEST CASES

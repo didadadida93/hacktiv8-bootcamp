@@ -1,6 +1,10 @@
 function mengelompokkanAngka(arr) {
   // you can only write your code here!
-  return [arr.filter(v => v % 2 === 0 && v % 3 !== 0), arr.filter(v => v % 2 === 1 && v % 3 !== 0), arr.filter(v => v % 3 === 0)]
+  return [
+    arr.filter(v => v % 2 === 0 && v % 3 !== 0),
+    arr.filter(v => v % 2 === 1 && v % 3 !== 0),
+    arr.filter(v => v % 3 === 0)
+  ]
 }
 
 // TEST CASES
