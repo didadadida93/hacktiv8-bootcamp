@@ -6,7 +6,9 @@ function cariModus(arr) {
     return a
   }, {})
 
-  return Object.values(temp).every((v, _, ar) => v === ar[0]) ? -1 : [...Object.entries(temp)].sort((a, b) => a[1] < b[1])[0][0]
+  return Object.values(temp).every((v, _, ar) => v === ar[0]) ?
+    -1 :
+    [...Object.entries(temp)].sort((a, b) => a[1] < b[1])[0][0]
 }
 
 // TEST CASES

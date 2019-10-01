@@ -1,6 +1,8 @@
 function deepSum (arr) {
   // Code disini
-  return arr.length === 0 ? 'No number' : arr.reduce((a, v) => Array.isArray(v) ? a + deepSum(v) : a + v, 0)
+  return arr.length === 0 ?
+    'No number' :
+    arr.reduce((a, v) => Array.isArray(v) ? a + deepSum(v) : a + v, 0)
 }
 
 //TEST CASE

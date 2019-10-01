@@ -1,12 +1,18 @@
 function fpb(angka1, angka2) {
   // you can only write your code here!
-  let faktorPengaliAngka1 = [...new Array(angka1)].map((_, i) => i).filter(v => angka1 % v === 0)
-  let faktorPengaliAngka2 = [...new Array(angka2)].map((_, i) => i).filter(v => angka2 % v === 0)
+  let faktorPengaliAngka1 = [...new Array(angka1)]
+    .map((_, i) => i)
+    .filter(v => angka1 % v === 0)
 
-  return faktorPengaliAngka1.filter(v => faktorPengaliAngka2.indexOf(v) !== -1).reduce((a, v, i, ar) => {
-    if (ar.length - 1 === i) a = v
-    return a
-  })
+  let faktorPengaliAngka2 = [...new Array(angka2)]
+    .map((_, i) => i)
+    .filter(v => angka2 % v === 0)
+
+  return faktorPengaliAngka1.filter(v => faktorPengaliAngka2.indexOf(v) !== -1)
+    .reduce((a, v, i, ar) => {
+      if (ar.length - 1 === i) a = v
+      return a
+    })
 }
 
 // TEST CASES

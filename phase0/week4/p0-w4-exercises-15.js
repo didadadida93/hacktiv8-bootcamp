@@ -1,20 +1,18 @@
 function highestScore (students) {
   // Code disini
-  let classScore = {}
-  for (let student of students) {
-    if (!(student.class in classScore)) {
-      classScore[student.class] = []
-    }
-    classScore[student.class].push({'name': student.name, 'score': student.score})
-  }
+  let classScore = students.reduce((a, student) => {
+    if (!a[student.class]) a[student.class] = []
+    a[student.class].push({name: student.name, score: student.score})
+    return a
+  }, {})
 
-  let result = {}
-  for (let cls in classScore) {
-    classScore[cls].sort((a, b) => a.score < b.score)
-    result[cls] = classScore[cls][0]
-  }
-
-  return result
+  return Object.entries(classScore)
+    .map(v => [v[0], v[1].sort((a, b) => a.score < b.score)])
+    .reduce((a, v) => {
+      if (!a[v[0]]) a[v[0]] = {}
+      a[v[0]] = v[1][0]
+      return a
+    }, {})
 }
 
 // TEST CASE

@@ -1,8 +1,13 @@
 function checkAB(num) {
   // you can only write your code here!
-  let indexA = num.split('').map((v, i) => v === 'a' ? i : -1).filter(v => v !== -1)
-  let indexB = num.split('').map((v, i) => v === 'b' ? i : -1).filter(v => v !== -1)
-  
+  let indexA = num.split('')
+    .map((v, i) => v === 'a' ? i : -1)
+    .filter(v => v !== -1)
+
+  let indexB = num.split('')
+    .map((v, i) => v === 'b' ? i : -1)
+    .filter(v => v !== -1)
+
   return indexA.some(v => indexB.some(valueB => Math.abs(v - valueB) === 4))
 }
 

@@ -1,17 +1,12 @@
 function graduates (students) {
   // Code disini
-  let classScore = {}
-  for (let student of students) {
-    if (!(student.class in classScore)) {
-      classScore[student.class] = []
-    }
+  return students.reduce((a, student) => {
+    if (!a[student.class]) a[student.class] = []
     if (student.score > 75) {
-      classScore[student.class].push({'name': student.name, 'score': student.score})
-    } else {
-      continue
+      a[student.class].push({name: student.name, score: student.score})
     }
-  }
-  return classScore
+    return a
+  }, {})
 }
 
 console.log(graduates([

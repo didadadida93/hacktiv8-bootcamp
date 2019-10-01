@@ -5,7 +5,9 @@ function ubahHuruf(kata) {
     'y', 'z'
   ]
 
-  return kata.split('').map(v => alphabetList[alphabetList.indexOf(v) + 1]).join('')
+  return kata.split('')
+    .map(v => alphabetList[alphabetList.indexOf(v) + 1])
+    .join('')
 }
 
 // TEST CASES
