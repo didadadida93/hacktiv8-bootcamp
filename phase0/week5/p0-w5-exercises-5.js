@@ -1,6 +1,8 @@
 function kaliTerusRekursif(angka) {
   // you can only write your code here!
-  return angka.toString().length === 1 ? angka : kaliTerusRekursif(angka.toString().split('').reduce((a, v) => a *= v))
+  return angka.toString().length === 1 ?
+    angka :
+    kaliTerusRekursif(angka.toString().split('').reduce((a, v) => a *= v))
 }
 
 // TEST CASES

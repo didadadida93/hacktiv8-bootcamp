@@ -19,7 +19,9 @@ function changeVocals (str) {
     'O': null,
   }
 
-  return str.split('').map(v => v in alphabetVocals ? alphabetList[alphabetList.indexOf(v) + 1] : v).join('')
+  return str.split('')
+    .map(v => v in alphabetVocals ? alphabetList[alphabetList.indexOf(v) + 1] : v)
+    .join('')
 }
 
 function reverseWord (str) {
@@ -29,7 +31,9 @@ function reverseWord (str) {
 
 function setLowerUpperCase (str) {
   //code disini
-  return str.split('').map(v => v.toUpperCase() === v ? v.toLowerCase() : v.toUpperCase()).join('')
+  return str.split('')
+    .map(v => v.toUpperCase() === v ? v.toLowerCase() : v.toUpperCase())
+    .join('')
 }
 
 function removeSpaces (str) {
@@ -39,7 +43,7 @@ function removeSpaces (str) {
 
 function passwordGenerator (name) {
   //code di sini
-  if (name.length < 5) {
+  if (name.length <= 5) {
     return 'Minimal karakter yang diinputkan adalah 5 karakter'
   }
   return removeSpaces(setLowerUpperCase(reverseWord(changeVocals(name))))
