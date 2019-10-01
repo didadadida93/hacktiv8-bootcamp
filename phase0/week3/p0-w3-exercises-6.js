@@ -1,7 +1,9 @@
 function angkaPalindrome(num) {
   // you can only write your code here!
   num++
-  return num.toString() === num.toString().split('').map((_, i, ar) => ar[ar.length - 1 - i]).join('') ? num : angkaPalindrome(num)
+  return num.toString() === num.toString().split('').map((_, i, ar) => ar[ar.length - 1 - i]).join('') ?
+    num :
+    angkaPalindrome(num)
 }
 
 // TEST CASES

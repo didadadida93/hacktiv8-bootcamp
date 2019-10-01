@@ -3,8 +3,9 @@ function tentukanDeretAritmatika(arr) {
   if (arr.length <= 2) {
     return true;
   }
-  return arr.map((v, i, ar) => i === ar.length - 1 ? v - ar[i - 1] : Math.abs(v - ar[i + 1]))
-    .every((v, _, ar) => v === ar[0])
+  return arr.map((v, i, ar) => i === ar.length - 1 ?
+    v - ar[i - 1] :
+    Math.abs(v - ar[i + 1])).every((v, _, ar) => v === ar[0])
 }
 
 // TEST CASES
