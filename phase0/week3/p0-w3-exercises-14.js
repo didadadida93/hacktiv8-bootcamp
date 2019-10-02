@@ -1,10 +1,22 @@
 function mengelompokkanAngka(arr) {
   // you can only write your code here!
-  return [
-    arr.filter(v => v % 2 === 0 && v % 3 !== 0),
-    arr.filter(v => v % 2 === 1 && v % 3 !== 0),
-    arr.filter(v => v % 3 === 0)
-  ]
+  // return [
+  //   arr.filter(v => v % 2 === 0 && v % 3 !== 0),
+  //   arr.filter(v => v % 2 === 1 && v % 3 !== 0),
+  //   arr.filter(v => v % 3 === 0)
+  // ]
+  let evenList = []
+  let oddList = []
+  let oddestList = []
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0 && arr[i] % 3 !== 0) evenList.push(arr[i])
+    else if (arr[i] % 2 === 1 && arr[i] % 3 !== 0) oddList.push(arr[i])
+    else if (arr[i] % 3 === 0) oddestList.push(arr[i])
+    else continue
+  }
+
+  return [evenList, oddList, oddestList]
 }
 
 // TEST CASES

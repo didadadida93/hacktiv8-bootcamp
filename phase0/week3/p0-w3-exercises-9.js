@@ -1,6 +1,12 @@
 function cariMean(arr) {
   // you can only write your code here!
-  return Math.round(arr.reduce((a, v) => a += v) / arr.length)
+  // return Math.round(arr.reduce((a, v) => a += v) / arr.length)
+  let total = arr.slice(0, 1)[0]
+  for (let i = 1; i < arr.length; i++) {
+    total += arr[i]
+  }
+
+  return Math.round(total / arr.length)
 }
 
 // TEST CASES

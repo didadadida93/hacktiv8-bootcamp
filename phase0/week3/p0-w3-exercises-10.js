@@ -1,7 +1,28 @@
 function perkalianUnik(arr) {
   // you can only write your code here!
-  return arr.map((_, index, ar) => ar.filter((_, i) => i !== index)
-    .reduce((a, v) => a *= v))
+  // return arr.map((_, index, ar) => ar.filter((_, i) => i !== index)
+  //   .reduce((a, v) => a *= v))
+  let result = []
+  for (let i = 0; i < arr.length; i++) {
+    if (i === 0) {
+      // get number after this index
+      let temp = arr[i + 1]
+      for (let j = 2; j < arr.length; j++) {
+        temp *= arr[j]
+      }
+      result.push(temp)
+    }
+
+    if (i === arr.length - 1 || i !== 0) {
+      // get number from very first index
+      let temp = arr[0]
+      for (let j = 0; j < arr.length; j++) {
+        if (j !== i) temp *= arr[j]
+      }
+      result.push(temp)
+    }
+  }
+  return result
 }
 
 // TEST CASES

@@ -1,11 +1,21 @@
 function tentukanDeretAritmatika(arr) {
   // you can only write your code here!
-  if (arr.length <= 2) {
-    return true;
+  // if (arr.length <= 2) {
+  //   return true;
+  // }
+  // return arr.map((v, i, ar) => i === ar.length - 1 ?
+  //   v - ar[i - 1] :
+  //   Math.abs(v - ar[i + 1])).every((v, _, ar) => v === ar[0])
+  let dif = []
+  for (let i = 0; i < arr.length; i++) {
+    if (i === arr.length - 1) dif.push(arr[i] - arr[i - 1])
+    else dif.push(Math.abs(arr[i] - arr[i + 1]))
   }
-  return arr.map((v, i, ar) => i === ar.length - 1 ?
-    v - ar[i - 1] :
-    Math.abs(v - ar[i + 1])).every((v, _, ar) => v === ar[0])
+
+  for (let i = 1; i < dif.length; i++) {
+    if (dif[i] !== dif[0]) return false
+  }
+  return true
 }
 
 // TEST CASES

@@ -1,6 +1,11 @@
 function hitungJumlahKata(kalimat) {
   // you can only write your code here!
-  return kalimat.split(' ').filter(v => v !== '').length
+  // return kalimat.split(' ').filter(v => v !== '').length
+  let result = 0
+  for (let i = 0; i < kalimat.split(' ').length; i++) {
+    if (kalimat.split(' ')[i] !== '') result += 1
+  }
+  return result
 }
 
 // TEST CASES

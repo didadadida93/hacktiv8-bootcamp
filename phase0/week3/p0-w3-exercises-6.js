@@ -1,7 +1,17 @@
 function angkaPalindrome(num) {
   // you can only write your code here!
+  // num++
+  // return num.toString() === num.toString().split('').map((_, i, ar) => ar[ar.length - 1 - i]).join('') ?
+  //   num :
+  //   angkaPalindrome(num)
   num++
-  return num.toString() === num.toString().split('').map((_, i, ar) => ar[ar.length - 1 - i]).join('') ?
+
+  let reversedNum = ''
+  for (let i = num.toString().length - 1; i >= 0; i--) {
+    reversedNum += num.toString()[i]
+  }
+
+  return num.toString() === reversedNum ?
     num :
     angkaPalindrome(num)
 }

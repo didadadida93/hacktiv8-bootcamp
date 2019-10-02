@@ -1,6 +1,12 @@
 function palindrome(kata) {
   // you can only write your code here!
-  return kata === [...kata].map((_, i, ar) => ar[ar.length - 1 - i]).join('')
+  // return kata === [...kata].map((_, i, ar) => ar[ar.length - 1 - i]).join('')
+  let reversedKata = ''
+  for (let i = kata.length - 1; i >= 0; i--) {
+    reversedKata += kata[i]
+  }
+
+  return kata === reversedKata
 }
 
 // TEST CASES
