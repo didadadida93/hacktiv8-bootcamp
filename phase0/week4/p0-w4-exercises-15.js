@@ -1,18 +1,60 @@
+function push(arr, item) {
+  arr[arr.length] = item
+}
+
+function objectEntries(obj) {
+  let result = []
+
+  for (let key in obj) push(result, [key, obj[key]])
+  
+  return result
+}
+
+function sort(arr, cb) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (cb(arr[i], arr[j])) {
+        [arr[i], arr[j]] = [arr[j], arr[i]]
+      }
+    }
+  }
+}
+
 function highestScore (students) {
   // Code disini
-  let classScore = students.reduce((a, student) => {
-    if (!a[student.class]) a[student.class] = []
-    a[student.class].push({name: student.name, score: student.score})
-    return a
-  }, {})
+  // let classScore = students.reduce((a, student) => {
+  //   if (!a[student.class]) a[student.class] = []
+  //   a[student.class].push({name: student.name, score: student.score})
+  //   return a
+  // }, {})
 
-  return Object.entries(classScore)
-    .map(v => [v[0], v[1].sort((a, b) => a.score < b.score)])
-    .reduce((a, v) => {
-      if (!a[v[0]]) a[v[0]] = {}
-      a[v[0]] = v[1][0]
-      return a
-    }, {})
+  let classScore = {}
+
+  for (let student of students) {
+    if (!classScore[student.class]) classScore[student.class] = []
+    push(classScore[student.class], {
+      name: student.name,
+      score: student.score,
+    })
+  }
+
+  // return Object.entries(classScore)
+  //   .map(v => [v[0], v[1].sort((a, b) => a.score < b.score)])
+  //   .reduce((a, v) => {
+  //     if (!a[v[0]]) a[v[0]] = {}
+  //     a[v[0]] = v[1][0]
+  //     return a
+  //   }, {})
+
+  let result = {}
+  let tempEntries = objectEntries(classScore)
+
+  for (let entries of tempEntries) {
+    sort(entries, (a, b) => a.score < b.score)
+    result[entries[0]] = entries[1][0]
+  }
+
+  return result
 }
 
 // TEST CASE

@@ -1,8 +1,31 @@
+function arraySummer(arr) {
+  let result = 0
+
+  for (let ar of arr) {
+    if (Array.isArray(ar)) {
+      result += arraySummer(ar)
+    } else {
+      result += ar
+    }
+  }
+  
+  return result
+}
+
+function reducer(arr) {
+  return arr.length === 0 ?
+    0 :
+    arr.reduce((a, v) => Array.isArray(v) ? a + reducer(v) : a + v, 0)
+}
+
 function deepSum (arr) {
   // Code disini
-  return arr.length === 0 ?
-    'No number' :
-    arr.reduce((a, v) => Array.isArray(v) ? a + deepSum(v) : a + v, 0)
+  // return arr.length === 0 ?
+  //   'No number' :
+  //   arr.reduce((a, v) => Array.isArray(v) ? a + reducer(v) : a + v, 0)
+
+  if (arr.length === 0) return 'No Number'
+  return arraySummer(arr)
 }
 
 //TEST CASE

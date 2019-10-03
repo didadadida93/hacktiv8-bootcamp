@@ -1,9 +1,15 @@
 function cariMedian(arr) {
   // you can only write your code here!
-  return arr.length % 2 === 1 ?
-    arr.find((v, i) => i === Math.floor(arr.length / 2)) :
-    arr.slice(Math.floor(arr.length / 2) - 1, Math.floor(arr.length / 2) + 1)
-      .reduce((a, v) => a += v) / 2
+  // return arr.length % 2 === 1 ?
+  //   arr.find((v, i) => i === Math.floor(arr.length / 2)) :
+  //   arr.slice(Math.floor(arr.length / 2) - 1, Math.floor(arr.length / 2) + 1)
+  //     .reduce((a, v) => a += v) / 2
+  
+  if (arr.length % 2 === 1) {
+    return arr[Math.floor(arr.length / 2)]
+  } else {
+    return (arr[(arr.length / 2)] + arr[(arr.length / 2) - 1]) / 2
+  }
 }
 
 // TEST CASES

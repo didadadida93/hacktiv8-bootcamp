@@ -16,13 +16,21 @@ function shoppingTime(memberId, money) {
     {name: 'Casing Handphone', price: 50000}
   ]
 
-  let purchasing = saleItem.reduce((a, item) => {
+  // let purchasing = saleItem.reduce((a, item) => {
+  //   if (moneyLeft >= item.price) {
+  //     a.push(item.name)
+  //     moneyLeft -= item.price
+  //   }
+  //   return a
+  // }, [])
+  
+  let purchasing = []
+  for (let item of saleItem) {
     if (moneyLeft >= item.price) {
-      a.push(item.name)
+      purchasing.push(item.name)
       moneyLeft -= item.price
     }
-    return a
-  }, [])
+  }
 
   return {
     memberId: memberId,

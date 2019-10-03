@@ -1,3 +1,16 @@
+function indexOf(arr, item) {
+  let temp = -1
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === item) {
+      temp = i
+      break
+    }
+  }
+
+  return temp
+}
+
 function ubahHuruf(kata) {
   // you can only write your code here!
   let alphabetList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
@@ -5,9 +18,17 @@ function ubahHuruf(kata) {
     'y', 'z'
   ]
 
-  return kata.split('')
-    .map(v => alphabetList[alphabetList.indexOf(v) + 1])
-    .join('')
+  // return kata.split('')
+  //   .map(v => alphabetList[alphabetList.indexOf(v) + 1])
+  //   .join('')
+
+  let result = ''
+  
+  for (let i = 0; i < kata.length; i++) {
+    result += alphabetList[indexOf(alphabetList, kata[i]) + 1]
+  }
+
+  return result
 }
 
 // TEST CASES

@@ -1,12 +1,30 @@
+function push(arr, item) {
+  arr[arr.length] = item
+}
+
 function graduates (students) {
   // Code disini
-  return students.reduce((a, student) => {
-    if (!a[student.class]) a[student.class] = []
+  // return students.reduce((a, student) => {
+  //   if (!a[student.class]) a[student.class] = []
+  //   if (student.score > 75) {
+  //     a[student.class].push({name: student.name, score: student.score})
+  //   }
+  //   return a
+  // }, {})
+
+  let result = {}
+
+  for (let student of students) {
+    if (!result[student.class]) result[student.class] = []
     if (student.score > 75) {
-      a[student.class].push({name: student.name, score: student.score})
+      push(result[student.class], {
+        name: student.name,
+        score: student.score,
+      })
     }
-    return a
-  }, {})
+  }
+  
+  return result
 }
 
 console.log(graduates([

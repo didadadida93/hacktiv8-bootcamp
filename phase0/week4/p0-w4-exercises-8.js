@@ -1,8 +1,17 @@
 function tukarBesarKecil(kalimat) {
   // you can only write your code here!
-  return kalimat.split('')
-    .map(v => v.toUpperCase() === v ? v.toLowerCase() : v.toUpperCase())
-    .join('')
+  // return kalimat.split('')
+  //   .map(v => v.toUpperCase() === v ? v.toLowerCase() : v.toUpperCase())
+  //   .join('')
+
+  let result = ''
+  
+  for (let str of kalimat.split('')) {
+    if (str.toUpperCase() === str) result += str.toLowerCase()
+    else result += str.toUpperCase()
+  }
+
+  return result
 }
 
 // TEST CASES
