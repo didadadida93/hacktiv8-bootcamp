@@ -1,44 +1,64 @@
 function changeVocals (str) {
   //code di sini
-  let alphabetList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
-    'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
-    'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-    'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-  ]
+  let result = ''
 
-  let alphabetVocals = {
-    'a': null,
-    'i': null,
-    'e': null,
-    'u': null,
-    'o': null,
-    'A': null,
-    'I': null,
-    'E': null,
-    'U': null,
-    'O': null,
+  for (let i = 0; i < str.length; i++) {
+    if (
+      str[i] === 'a' ||
+      str[i] === 'i' ||
+      str[i] === 'u' ||
+      str[i] === 'e' ||
+      str[i] === 'o' ||
+      str[i] === 'A' ||
+      str[i] === 'I' ||
+      str[i] === 'U' ||
+      str[i] === 'E' ||
+      str[i] === 'O'
+    ) {
+      result += String.fromCharCode(str[i].charCodeAt() + 1)
+    } else {
+      result += str[i]
+    }
   }
 
-  return str.split('')
-    .map(v => v in alphabetVocals ? alphabetList[alphabetList.indexOf(v) + 1] : v)
-    .join('')
+  return result
 }
 
 function reverseWord (str) {
   //code disini
-  return str.split('').reverse().join('')
+  let result = ''
+
+  for (let i = str.length - 1; i >= 0; i--) {
+    result += str[i]
+  }
+
+  return result
 }
 
 function setLowerUpperCase (str) {
   //code disini
-  return str.split('')
-    .map(v => v.toUpperCase() === v ? v.toLowerCase() : v.toUpperCase())
-    .join('')
+  let result = ''
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i].toLowerCase() === str[i]) {
+      result += str[i].toUpperCase()
+    } else {
+      result += str[i].toLowerCase()
+    }
+  }
+
+  return result
 }
 
 function removeSpaces (str) {
   //code di sini
-  return str.split(' ').join('')
+  let result = ''
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== ' ') result += str[i]
+  }
+
+  return result
 }
 
 function passwordGenerator (name) {
@@ -46,7 +66,12 @@ function passwordGenerator (name) {
   if (name.length <= 5) {
     return 'Minimal karakter yang diinputkan adalah 5 karakter'
   }
-  return removeSpaces(setLowerUpperCase(reverseWord(changeVocals(name))))
+  name = changeVocals(name)
+  name = reverseWord(name)
+  name = setLowerUpperCase(name)
+  name = removeSpaces(name)
+
+  return name
 }
 
 console.log(passwordGenerator('Sergei Dragunov')); // 'VPNVGBRdJFGRFs'

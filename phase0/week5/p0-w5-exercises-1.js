@@ -1,6 +1,16 @@
 function sorting(arrNumber) {
   // code di sini
-  return arrNumber.sort((a, b) => a < b)
+  // return arrNumber.sort((a, b) => a < b)
+
+  for (let i = 0; i < arrNumber.length; i++) {
+    for (let j = i + 1; j < arrNumber.length; j++) {
+      if (arrNumber[i] < arrNumber[j]) {
+        [arrNumber[i], arrNumber[j]] = [arrNumber[j], arrNumber[i]]
+      }
+    }
+  }
+
+  return arrNumber
 }
 
 function getTotal(arrNumber) {
@@ -8,7 +18,13 @@ function getTotal(arrNumber) {
   if (arrNumber.length === 0) {
     return ''
   }
-  let totalMuncul = arrNumber.reduce((a, v, _, ar) => v === ar[0] ? a += 1 : a = a, 0)
+  // let totalMuncul = arrNumber.reduce((a, v, _, ar) => v === ar[0] ? a += 1 : a = a, 0)
+
+  let totalMuncul = 0
+  for (let num of arrNumber) {
+    if (num === arrNumber[0]) totalMuncul += 1
+  }
+  
   return `angka paling besar adalah ${arrNumber[0]} dan jumlah kemunculan sebanyak ${totalMuncul} kali`
 }
 

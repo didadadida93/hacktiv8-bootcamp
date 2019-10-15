@@ -2,7 +2,7 @@ function totalDigitRekursif(angka) {
   // you can only write your code here!
   return angka.toString().length === 1 ?
     angka :
-    Number(angka.toString().split('').shift()) + totalDigitRekursif(Number(angka.toString().slice(1)))
+    Number(angka.toString()[0]) + totalDigitRekursif(Number(angka.toString().substring(1)))
 }
 
 // TEST CASES

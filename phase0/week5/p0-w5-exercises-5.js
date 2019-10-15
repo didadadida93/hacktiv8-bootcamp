@@ -1,8 +1,25 @@
+function reduce(arr, cb, accumulator) {
+  let start
+
+  if (accumulator !== undefined) {
+    start = 0
+  } else {
+    start = 1
+    accumulator = arr[0]
+  }
+
+  for (let i = start; i < arr.length; i++) {
+    accumulator = cb(accumulator, arr[i], i, arr)
+  }
+
+  return accumulator
+}
+
 function kaliTerusRekursif(angka) {
   // you can only write your code here!
   return angka.toString().length === 1 ?
     angka :
-    kaliTerusRekursif(angka.toString().split('').reduce((a, v) => a *= v))
+    kaliTerusRekursif(reduce(angka.toString().split(''), (a, v) => a *= Number(v)))
 }
 
 // TEST CASES
